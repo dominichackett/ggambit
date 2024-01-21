@@ -3,9 +3,11 @@
 
 import { useState ,useEffect,useRef,useContext} from 'react'
 
- 
-
-  import { useRouter } from 'next/router'
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import SigupDialog from '../Signup/Signup'
+import LoginDialog from '../Login/Login';
+import Notification from '../Notification/Notification';
+import { useRouter } from 'next/router'
 
   //import { useSession } from "next-auth/react"
 import Link from 'next/link';
@@ -15,15 +17,32 @@ import Logo from './logo';
     const [navbarOpen,setNavbarOpen] = useState(false)
     const [submenuOpen,setSubmenuOpen] = useState(false)
     const [scrolledFromTop,setScrolledFromTop] = useState(true)
-   // const { address, connector, isConnected } = useAccount()
-    //const { connect, connectors, error, isLoading, pendingConnector } = useConnect()
-    //const { disconnect } = useDisconnect()
-    //const { data: session,status } = useSession()
+    const [openSignUpDialog, setOpenSignUpDialog] = useState(false);
+    const [openLoginDialog, setOpenLoginDialog] = useState(false);
+    // NOTIFICATIONS functions
+    const [notificationTitle, setNotificationTitle] = useState();
+    const [notificationDescription, setNotificationDescription] = useState();
+    const [dialogType, setDialogType] = useState(1);
+    const [show, setShow] = useState(false);
+    const close = async () => {
+      setShow(false);
+    };
     //const router  = useRouter()
     const aCode = useRef()
    //const { accessToken} = useContext(TokenContext);
 
- 
+   const closeSignUpDialog = () => {
+    setOpenSignUpDialog(false);
+  };
+
+  const signUp = async (_fund:any,cycle:number) => {}
+
+  const closeLoginDialog = () => {
+    setOpenLoginDialog(false);
+  };
+
+  const login = async (_fund:any,cycle:number) => {}
+
 
     return( <header
         className={`${scrolledFromTop ? 'z-50 bg-dark bg-opacity-70 shadow-sticky backdrop-blur-sm' : ' z-50'} header top-0 left-0 flex w-full items-center bg-transparent transition fixed`}
@@ -103,41 +122,12 @@ import Logo from './logo';
                               href="/profile"
                               className="block rounded py-[10px] px-4 text-sm font-medium text-[#bababa] hover:text-white"
                             >
-                              Profile
+                              Wallet
                             </Link>
-                            <Link
-                              href="/createobject"
-                              className="block rounded py-[10px] px-4 text-sm font-medium text-[#bababa] hover:text-white"
-                            >
-                              Create Object
-                            </Link>
-                            <Link
-                              href="/myobjects"
-                              className="block rounded py-[10px] px-4 text-sm font-medium text-[#bababa] hover:text-white"
-                            >
-                              My Objects
-                            </Link>
-                            <Link
-                              href="/myorders"
-                              className="block rounded py-[10px] px-4 text-sm font-medium text-[#bababa] hover:text-white"
-                            >
-                              My Orders                            </Link>
+                           
       
                            
-                            <Link
-                              href="/printer"
-                              className="block rounded py-[10px] px-4 text-sm font-medium text-[#bababa] hover:text-white"
-                            >
-                              Printer
-                            </Link>
-
-                            <Link
-                              href="/printorders"
-                              className="block rounded py-[10px] px-4 text-sm font-medium text-[#bababa] hover:text-white"
-                            >
-                              Customer Print Orders
-                            </Link>
-
+                            
                           
       
       
@@ -205,7 +195,39 @@ import Logo from './logo';
                        text-base font-semibold text-[#bababa] group-hover:text-white 
                     lg:mr-0 lg:ml-6 lg:inline-flex lg:py-6 lg:px-0 xl:ml-6"
                       > 
-                        </div>
-
+                       <div className="flex flex-wrap items-center">
+                <button
+                  onClick={()=>setOpenSignUpDialog(true)}
+                  className="mr-5 inline-flex items-center justify-center rounded-md border-2 border-primary bg-primary py-1 px-4 text-base font-semibold text-white transition-all hover:bg-opacity-90"
+                >
+                  Sign Up
+                </button>
+                <button
+                onClick={()=> setOpenLoginDialog(true)}
+                  className="inline-flex items-center justify-center rounded-md border-2 border-white py-1 px-4 text-base font-semibold text-white transition-all hover:border-primary hover:bg-primary"
+                >
+                  login
+                </button>
+              </div> </div>
+              <SigupDialog
+        open={openSignUpDialog}
+        setOpen={closeSignUpDialog}
+        signup={signUp}
+        
+      />
+       <LoginDialog
+        open={openLoginDialog}
+        setOpen={closeLoginDialog}
+        login={login}
+      
+        
+      />
+      <Notification
+        type={dialogType}
+        show={show}
+        close={close}
+        title={notificationTitle}
+        description={notificationDescription}
+      />
            </div></div>  </header>)
 }

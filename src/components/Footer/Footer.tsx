@@ -21,7 +21,7 @@ export default function Footer(){
                     <p
                       className="mb-6 text-base font-medium text-body-color"
                     >
- 3D Printing For The Sharing Economy                   </p>
+Galactic Gambit - Dice Poker                  </p>
     
                     <div className="flex items-center">
                       <a
@@ -225,7 +225,7 @@ export default function Footer(){
             <div className="border-t border-stroke">
               <div className="py-7 text-center">
                 <p className="text-base font-medium text-body-color">
-                  &copy; Copyright {new Date().getFullYear()} - 3D Print Near Me, All rights reserved.
+                  &copy; Copyright {new Date().getFullYear()} - Galactic Gambit - Dice Poker, All rights reserved.
                 </p>
               </div>
             </div>
