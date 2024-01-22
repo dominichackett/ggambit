@@ -4,7 +4,11 @@ import Footer from '@/components/Footer/Footer'
 import Link from 'next/link'
 import Logo from '../components/Header/logobig';
 import Dice from '@/components/Dice/Dice';
-export default function Home() {
+import Player2Dice ,{ Player2DiceRef }from '@/components/Dice/Player2Dice'
+import { useRef } from 'react';
+export default function Game() {
+    const player2DiceRef = useRef<Player2DiceRef>(null)
+
   return (
     <>
       <Head>
@@ -20,16 +24,20 @@ export default function Home() {
      >
     
      <Header/>
-     <div class="container h-screen relative">
+     <div class="container min-h-screen   bg-[url('/images/splash.png')] bg-cover bg-top bg-no-repeat pt-[140px] pb-28">
 
-     <section
-      id="home"
-      className= " bg-[url('/images/splash.png')] w-full h-full relative z-10 overflow-hidden bg-cover bg-top bg-no-repeat pt-[150px] pb-24"
-          >
      
-    <Dice/>
-      
-    </section>
+               <div className='flex items-center justify-center'> <span id="titlePlayerOne" className="mt-14 ">Player 1</span></div> 
+ 
+    <div class="mt-10 flex items-center justify-center"><Dice />
+</div> 
+<div className='flex items-center justify-center'> <span id="titlePlayerTwo" className="mt-14 ">Player 2</span></div> 
+
+        <div class="mt-10 mb-80 flex items-center justify-center"><Player2Dice ref={player2DiceRef}/>      <button id="rollButton" onClick={()=>player2DiceRef.current.roll([6,5,4,3,2])}>Roll dice!</button>
+</div>
+      <span id="titlePot" className="mt-14">Pot: </span>
+
+
     </div>
      <Footer/>
      </main>

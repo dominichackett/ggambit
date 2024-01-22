@@ -24,6 +24,7 @@ export default function Dice(){
         var diceThree   = Math.floor((Math.random() * 6) + 1);
         var diceFour   = Math.floor((Math.random() * 6) + 1);
         var diceFive  = Math.floor((Math.random() * 6) + 1);
+        console.log(diceOne,diceTwo,diceThree,diceFour,diceFive)
        playAudio()
         if(diceToRoll[0])
         for (var i = 1; i <= 6; i++) {
@@ -71,7 +72,8 @@ export default function Dice(){
 
     }
     return (
-    <div className="game flex space-x-4">
+    <div className="flex-col items-center justify-center">  
+    <div className="game flex space-x-4 items-center justify-center">
       <div id='dice1' class="dice dice-one" onClick={()=>rolldie(0)}>
         <div id="dice-one-side-one" class='side one'>
           <div class="dot one-1"></div>
@@ -251,11 +253,15 @@ export default function Dice(){
         </div>  
 
       </div>
-      <div id='roll' class='roll-button'><button id="rollButton" onClick={()=>rolldice([true,true,true,true,true])}>Roll dice!</button></div>
-      <div id='roll' class='roll-button'><button id="raiseButton" onClick={()=>rolldice([true,false,false,false,false])}>Raise</button></div>
-      <div id='roll' class='roll-button'><button id="foldButton" onClick={()=>rolldice([true,false,false,false,false])}>Fold</button></div>
+    </div>
+     <div className="flex space-x-2 mb-8 mt-4 items-center justify-center"> 
+      <button id="rollButton" onClick={()=>rolldice([true,true,true,true,true])}>Roll dice!</button>
+      <button id="raiseButton" onClick={()=>rolldice([true,false,false,false,false])}>Raise</button>
+      <button id="foldButton" onClick={()=>rolldice([true,false,false,false,false])}>Fold</button>
+      <button id="aiButton" onClick={()=>rolldice([true,false,false,false,false])}>Ask AI</button>
 
-      <audio ref={audioRef} >
+      </div>
+      <audio ref={audioRef}  >
           <source src="/sound/dice.ogg" type="audio/ogg" />
           Your browser does not support the audio element.
         </audio>

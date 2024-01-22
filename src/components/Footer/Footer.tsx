@@ -8,7 +8,7 @@ export default function Footer(){
     const [submenuOpen,setSubmenuOpen] = useState(false)
     const [scrolledFromTop,setScrolledFromTop] = useState(false)
     return(
-        <footer className="mt-0 bg-bg-color pt-24">
+        <footer className=" bg-bg-color pt-24">
           <div className="container">
             <div className="-mx-4 flex flex-wrap">
               <div className="w-full px-4 sm:w-6/12 lg:w-3/12 xl:w-4/12">

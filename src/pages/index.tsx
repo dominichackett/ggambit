@@ -41,7 +41,7 @@ export default function Home() {
                 className="mb-4 text-[40px] font-bold leading-tight text-white md:text-[50px] lg:text-[40px] xl:text-[46px] 2xl:text-[50px] sm:text-[46px]"
               >
                
-               Galactic Gambit - Dice Poker Game
+               <span class="titleGalactic">Galactic</span><span class="titleGambit"> Gambit</span> - <span class="titleDicePoker"> Dice Poker Game</span>
                              </h1>
               <p
                 className="mb-8 text-lg font-medium leading-relaxed text-body-color md:pr-14"
@@ -49,7 +49,7 @@ export default function Home() {
 Embark on a thrilling multiplayer journey through the cosmos with Galactic Gambit, an engaging dice poker game that brings together players from across the galaxy. In this space-themed adventure, participants use regular dice to strategically outmaneuver opponents and claim victory in interstellar showdowns. With its visually striking design, diverse regular dice options, and seamless online multiplayer functionality, Galactic Gambit transforms the gaming experience into a cosmic odyssey. Whether challenging friends or testing skills against a galactic community, players can immerse themselves in the excitement of multiplayer dice poker, creating an ever-expanding universe of strategic competition and interstellar camaraderie.  AI game assistant to help increase your odds of winning.              </p>
          <div className="flex flex-wrap items-center">
                 <Link
-                  href="/marketplace"
+                  href="/lobby"
                   className="mr-5 mb-5 inline-flex items-center justify-center rounded-md border-2 border-primary bg-primary py-3 px-7 text-base font-semibold text-white transition-all hover:bg-opacity-90"
                 >
                   Game Lobby
@@ -68,7 +68,7 @@ Embark on a thrilling multiplayer journey through the cosmos with Galactic Gambi
             <div className="text-center">
             <Logo/>
 
-       <div id="logo" className='mt-4'>Galactic Gambit<div id="flight"> Dice Poker</div></div>
+       <div id="logo" className='mt-4'>Galactic <div id="logored">Gambit</div><div id="dicepokersmall"> Dice Poker</div></div>
    
 
             </div>
