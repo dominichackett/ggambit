@@ -53,13 +53,12 @@
 
 #titlePot {
   display: block;
-  position: absolute;
+  position: inline;
   z-index: 1;
   font-size: 38px;
   color: blue;
   font-family: 'Future';
-  top: 26px;
-  left: 20px;
+ 
 }
 .grade {
   background: linear-gradient(

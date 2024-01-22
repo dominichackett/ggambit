@@ -26,7 +26,8 @@ export default function Game() {
      <Header/>
      <div class="container min-h-screen   bg-[url('/images/splash.png')] bg-cover bg-top bg-no-repeat pt-[140px] pb-28">
 
-     
+     <div className='flex items-center justify-center'><span id="titlePot" className="mt-14">Pot: </span></div>
+
                <div className='flex items-center justify-center'> <span id="titlePlayerOne" className="mt-14 ">Player 1</span></div> 
  
     <div class="mt-10 flex items-center justify-center"><Dice />
@@ -35,7 +36,6 @@ export default function Game() {
 
         <div class="mt-10 mb-80 flex items-center justify-center"><Player2Dice ref={player2DiceRef}/>      <button id="rollButton" onClick={()=>player2DiceRef.current.roll([6,5,4,3,2])}>Roll dice!</button>
 </div>
-      <span id="titlePot" className="mt-14">Pot: </span>
 
 
     </div>
